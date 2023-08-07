@@ -1,0 +1,36 @@
+#don-image {
+    height: 650px;
+}
+
+.don-text {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    right: 20%;
+    color: whitesmoke;
+}
+
+#don-button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 200px;
+    height: 80px;
+    font-size: 25px;
+    transform: translate(-50%, -50%);
+}
+
+#scan-text {
+    position: absolute;
+    top: 78%;
+    left: 40%;
+    
+}
+
+#don-qr-code {
+    position: absolute;
+    top: 85%;
+    left: 47%;
+    width: 100px;
+    height: 110px;
+}
