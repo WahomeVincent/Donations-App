@@ -1,4 +1,5 @@
 import './App.css';
+
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './home';
@@ -26,7 +27,7 @@ function App() {
           <Route path='/create-charity' element={<Createcharity />} />
           <Route path='/volunteer' element={<Volunteer />} />
           <Route path='/donations' element={<Donations />} />
-          <Route path='*' element={<h1>PAGE NOT FOUND</h1>} />
+          <Route path='*' element={<h1>PAGE NOT FOUND :: 404 Status</h1>} />
         </Routes>
       </Router>
     </div>
