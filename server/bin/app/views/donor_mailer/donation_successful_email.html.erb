@@ -1,0 +1,15 @@
+<!-- app/views/donor_mailer/donation_successful_email.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thank You for Your Donation!</title>
+</head>
+<body>
+  <h1>Thank You for Your Donation!</h1>
+  <p>Dear <%= @donor.name %>,</p>
+  <p>We want to express our deepest gratitude for your generous donation of $<%= @amount %> to support the charity "<%= @charity.name %>". Your contribution will make a significant impact on the lives of the beneficiaries we serve.</p>
+  <p>Thank you for being a part of our mission to create positive change.</p>
+  <p>Best regards,</p>
+  <p>The Donation Platform Team</p>
+</body>
+</html>

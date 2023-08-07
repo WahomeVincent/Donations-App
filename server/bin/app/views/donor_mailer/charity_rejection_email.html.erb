@@ -1,0 +1,15 @@
+<!-- app/views/donor_mailer/charity_rejection_email.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Charity Rejected</title>
+</head>
+<body>
+  <h1>Charity Rejected</h1>
+  <p>Dear <%= @donor.name %>,</p>
+  <p>We regret to inform you that the charity "<%= @charity.name %>" has been rejected on our platform. You can still explore other charities and continue supporting the causes that matter to you.</p>
+  <p>Thank you for your understanding!</p>
+  <p>Best regards,</p>
+  <p>The Donation Platform Team</p>
+</body>
+</html>

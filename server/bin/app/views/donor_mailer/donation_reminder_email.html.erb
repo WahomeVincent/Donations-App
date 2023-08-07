@@ -1,0 +1,15 @@
+<!-- app/views/donor_mailer/donation_reminder_email.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Donation Reminder</title>
+</head>
+<body>
+  <h1>Donation Reminder</h1>
+  <p>Dear <%= @donor.name %>,</p>
+  <p>This is a friendly reminder that your scheduled donation to support the charity "<%= @charity.name %>" is coming up soon. The donation date is <%= @donation_date %>.</p>
+  <p>Thank you for your continued support!</p>
+  <p>Best regards,</p>
+  <p>The Donation Platform Team</p>
+</body>
+</html>
