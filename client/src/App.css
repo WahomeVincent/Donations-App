@@ -527,44 +527,4 @@ img{
  
   }
    
-  /* Donations page */
-
-  .donations-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .donations-container img {
-    width: max-content;
-    height: auto;
-    margin-left: 200px;
-  }
-  
-  .donations-container .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #201cd4;
-    color: white;
-    font-size: 40px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .donations-container .btn:hover {
-    background-color: black;
-  }
-
-/*   
-  .qr-icon {
-    width: 200px;
-    height: 200px;
-  } */
-
  
