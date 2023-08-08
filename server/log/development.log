@@ -7503,3 +7503,52 @@ Started DELETE "/accounts/1/1" for ::1 at 2023-08-08 10:08:54 +0300
   
 ActionController::RoutingError (uninitialized constant AccountsController):
   
+Started DELETE "/accounts/1/1" for ::1 at 2023-08-08 10:16:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccountsController#destroy as */*
+  Parameters: {"name"=>"QamarIAH", "email"=>"qamarIAH66@gmail.com", "mobile"=>"075645656", "repeat_donation"=>"TRUE", "anonymous"=>"FALSE", "user_id"=>"1", "id"=>"1", "account"=>{"name"=>"QamarIAH", "mobile"=>"075645656", "email"=>"qamarIAH66@gmail.com", "user_id"=>"1"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `current_user'
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:86:in `set_account'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounts_controller.rb:79:in `destroy'
+  [1m[36mAccount Destroy (3.3ms)[0m  [1m[31mDELETE FROM "accounts" WHERE "accounts"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/accounts_controller.rb:79:in `destroy'
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounts_controller.rb:79:in `destroy'
+Completed 204 No Content in 414ms (ActiveRecord: 16.5ms | Allocations: 21458)
+
+
+Started DELETE "/accounts/4" for ::1 at 2023-08-08 10:16:41 +0300
+Processing by AccountsController#destroy as */*
+  Parameters: {"name"=>"QamarIAH", "email"=>"qamarIAH66@gmail.com", "mobile"=>"075645656", "repeat_donation"=>"TRUE", "anonymous"=>"FALSE", "user_id"=>"6", "id"=>"4", "account"=>{"name"=>"QamarIAH", "mobile"=>"075645656", "email"=>"qamarIAH66@gmail.com", "user_id"=>"6"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `current_user'
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:86:in `set_account'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounts_controller.rb:79:in `destroy'
+  [1m[36mAccount Destroy (15.9ms)[0m  [1m[31mDELETE FROM "accounts" WHERE "accounts"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/accounts_controller.rb:79:in `destroy'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounts_controller.rb:79:in `destroy'
+Completed 204 No Content in 47ms (ActiveRecord: 21.2ms | Allocations: 2628)
+
+
+Started GET "/accounts" for ::1 at 2023-08-08 10:21:13 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/accounts"):
+  
+Started GET "/userprofile/5" for ::1 at 2023-08-08 10:23:34 +0300
+Processing by AccountsController#index as */*
+  Parameters: {"name"=>"QamarIAH", "email"=>"qamarIAH66@gmail.com", "mobile"=>"075645656", "repeat_donation"=>"TRUE", "anonymous"=>"FALSE", "user_id"=>"5", "account"=>{"name"=>"QamarIAH", "mobile"=>"075645656", "email"=>"qamarIAH66@gmail.com", "user_id"=>"5"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:25:in `current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:6:in `index'
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ? LIMIT ?[0m  [["user_id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:11:in `index'
+Completed 200 OK in 236ms (Views: 0.8ms | ActiveRecord: 2.0ms | Allocations: 6329)
+
+
