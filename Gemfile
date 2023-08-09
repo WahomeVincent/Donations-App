@@ -12,6 +12,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
+#Admin Panel
+gem 'rails_admin', '~> 3.0'
+gem 'sassc-rails'
+
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -31,3 +36,4 @@ group :development do
   # gem "spring"
 end
 
+gem "sassc-rails"
