@@ -18,7 +18,6 @@ function Signup({setUser}){
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-
     if (password !== password_confirmation) {
       setErrors(["Passwords do not match"]);
       setIsLoading(false);
@@ -32,6 +31,8 @@ function Signup({setUser}){
     }
 
     try {
+      
+
       const response = await fetch("/signup", {
         method: "POST",
         headers: {
@@ -40,17 +41,26 @@ function Signup({setUser}){
         body: JSON.stringify({email, password, password_confirmation }),
       });
 
-      setIsLoading(false);
 
-      if (response.ok) {
+      // setIsLoading(false);
+
+      if (response.ok == true) {
+        // console.log('1');
         const data = await response.json();
         // Assuming you want to set the user after successful sign-up
-        setUser(data.user);
+        // setUser(data.user);
+        console.log('2');
+
         navigate("/login");
       } else {
+        console.log('error');
+
+
         const err = await response.json();
         setErrors([err.message || "Invalid Username or Password"]);
       }
+
+
     } catch (error) {
       setErrors(["An error occurred during signup. Please try again."]);
       setIsLoading(false);
@@ -138,7 +148,7 @@ function Signup({setUser}){
                       </div>
 
                       <div className="pt-1 mb-4">
-                      <button type="button" class="btn btn-primary" id="donate-btn" >Sign Up</button>
+                      <button type="submit" class="btn btn-primary" id="donate-btn" >Sign Up</button>
 
                       </div>
 
