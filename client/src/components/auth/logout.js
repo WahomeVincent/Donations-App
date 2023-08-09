@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Logout = ( {setUser} ) => {
+const Logout = ( {onLogout} ) => {
     const navigate = useNavigate()
 
     const handleLogoutClick = (e) => {
@@ -9,7 +9,9 @@ const Logout = ( {setUser} ) => {
         fetch("/logout", { 
             method: "DELETE",
         })
-        navigate('/landing-page')
+
+
+        navigate('/')
     }
 
   return (

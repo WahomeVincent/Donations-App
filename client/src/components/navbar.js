@@ -1,8 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "./path.png";
 
-function Navbar(){
+function Navbar({user, setUser}){
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+        navigate("/");
+      }
+    });
+  }
+
+  const handleSignupClick = () => {
+    // Navigate to the "/signup" route
+    navigate('/login');
+  };
+
     return(
         <>
             <nav class="navbar navbar-expand-md sticky-navbar ">
@@ -14,6 +30,7 @@ function Navbar(){
         </button>
     
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          
           <ul class="navbar-nav mx-auto">
             <li >
                 <img src={logo} className="nav-logo" alt="Company Logo"/>
@@ -40,12 +57,22 @@ function Navbar(){
           </ul>
           <ul class="navbar-nav mx-auto">
           <div className="sign-in">
-              <li class="nav-item">
+            {!user ? (
+              <>
+                <li class="nav-item">
               <Link to='/login' class="nav-link mx-2">Login</Link>
               </li>
               <li class="nav-item">
-              <Link to='/signup' class="nav-link mx-2">Signup</Link>
+              <Link to='/signup' onClick={handleSignupClick} class="nav-link mx-2">Signup</Link>
               </li>
+              </>
+            ) : (
+              <li>
+              <button onClick={handleLogout}  class="nav-link mx-2">Logout</button>
+              
+            </li>
+            )}
+              
             </div>
           </ul>
         </div>
