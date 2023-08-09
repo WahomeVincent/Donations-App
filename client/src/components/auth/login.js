@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = ( {setUser}) => {
+const Login = ( {onLogin}) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,15 +21,13 @@ const Login = ( {setUser}) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       })
-
-      .then(res => res.json())
-      .then(data => console.log(data))
+      console.log(response);
 
       if (response.ok) {
         setIsLoading(false);
         const user = await response.json();
-        setUser(user);
-        console.log("Access");
+        onLogin(user);
+        
         navigate('/')
       } else {
         const err = await response.json();
@@ -60,12 +58,9 @@ const Login = ( {setUser}) => {
                 <div className="col-md-6 col-lg-7 d-flex align-items-center">
                   <div className="card-body p-4 p-lg-5 text-black">
                   <h1>Login</h1>
-                   {errors && <p>{errors}</p>}
+                   <h3 style={{backgroundColor: 'red'}}>{errors && <p>{errors}</p>}</h3>
                     <form onSubmit={handleSubmit}> 
-                      <div className="d-flex align-items-center mb-3 pb-1">
-                        <i className="fas fa-cubes fa-2x me-3" style={{ color: '#ff6219' }}></i>
-                        <span className="h1 fw-bold mb-0">Logo</span>
-                      </div>
+                      
 
                       <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}>
                         Sign into your account
@@ -102,7 +97,7 @@ const Login = ( {setUser}) => {
                       </div>
 
                       <div className="pt-1 mb-4">
-                      <button type="button" class="btn btn-primary" id="donate-btn" >
+                      <button type="submit" class="btn btn-primary" id="donate-btn" >
                       {isLoading ? "Loading..." : "Login"}
                       </button>
 
