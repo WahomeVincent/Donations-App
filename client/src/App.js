@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './home';
 import Aboutus from './aboutus';
-// import Logout from './components/auth/logout';
+import Logout from './components/auth/logout';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
 import Navbar from './components/navbar';
@@ -32,7 +32,7 @@ function App() {
     fetchUserData();
   }, []);
 
-  if (!user) {
+ 
     return(
       <>
          <Router>
@@ -40,41 +40,39 @@ function App() {
           <Navbar user={user} setUser={setUser} />
           <main>
             <Routes>
+              {!user && (
+                <>
               <Route path='/' element={<Home />} />
               <Route path='/aboutus' element={<Aboutus />} />
               <Route path='/charities' element={<Charities />} />
               <Route path="/signup" element={<Signup setUser={setUser} />} />
-              <Route path="/login" element={<Login setUser={setUser} />} />
+              <Route path="/login" element={<Login onLogin={setUser} />} />
               <Route path='/donations' element={<Donations />} />
-
-            </Routes>
-          </main>
-        </Router>
-      </>
-    )
-  }
-
-
-
-  return (
-    <div className="App">
-      <Router>
-        <div><Navbar /></div>
-        
-        <Routes>
-          <Route path='/' element={<Home />} />
+              </>
+              )}
+              {user && (
+                <>
+                      <Route path='/' element={<Home />} />
           <Route path='/aboutus' element={<Aboutus />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
+          <Route path='/logout' element={<Logout onLogout={setUser}/>} />
+          <Route path="/login" element={<Login onLogin={setUser} />} />
+
+          <Route path='/signup' element={<Signup onLogin={setUser} />} />
           <Route path='/charities' element={<Charities />} />
           <Route path='/create-charity' element={<Createcharity />} />
           <Route path='/volunteer' element={<Volunteer />} />
           <Route path='/donations' element={<Donations />} />
           <Route path='*' element={<h1>PAGE NOT FOUND :: 404 Status</h1>} />
-        </Routes>
-      </Router>
-    </div>
-  );
+       
+                </>
+              )}
+            </Routes>
+          </main>
+        </Router>
+      </>
+    )
+  
+
 }
 
 export default App;
