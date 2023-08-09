@@ -42,5 +42,9 @@ module DonationsBackend
     # Use SameSite=Strict for all cookies to help protect against CSRF
     # https://owasp.org/www-community/SameSite
     config.action_dispatch.cookies_same_site_protection = :strict
+
+    #Admin configuration
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
   end
 end
