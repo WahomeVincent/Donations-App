@@ -1,24 +1,51 @@
-# README
+# The Path
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+The Path is a Kenyan based Non-profit organisation aimed at keeping more disadvantaged girls in school. Through our donation and charity programs, we collaborate with several insitutions to provide santary towels, water, hygiene and sanitary facilities to girls in poor environments.
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+## Technologies Used
+- HTML
+- CSS
+- Javascript
+- React
+- Bootstrap5
+- Rails
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+## Set Up Instructions
 
-* How to run the test suite
+### Installation
+To use this repo on your machine requires some simple steps
 
-* Services (job queues, cache servers, search engines, etc.)
+- Open a terminal / command line interface on your computer
+- Clone the repo by using the following:
 
-* Deployment instructions
+   https://github.com/WahomeVincent/Donations.git
 
-* ...
+- Be patient as it creates a copy on your local machine for you.
+
+
+### client 
+- Navigate to the client directory for donor frontend
+        cd client 
+
+- Install javascript dependencies
+
+        npm install
+
+- Run the React app:
+        
+        npm start
+
+
+### rails api
+
+- Install ruby dependencies
+-   bundle install
+
+- Create the database and add seed data
+
+        rails db:create db:seed
